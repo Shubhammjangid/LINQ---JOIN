@@ -58,7 +58,7 @@ namespace LINQ
             new Department() { StudentID = 50, DepartmentName = "Computer" } 
         };
 
-        
+       
 
 
         public void go()
@@ -85,6 +85,9 @@ namespace LINQ
                                 Depar = Dep.DepartmentName
                             }
             );
+
+            var average = studentList.Average(x => x.StudentID);
+            var sum = studentList.Sum(x => x.StudentID);
             foreach(var pep in innerJoin)
             {
                 Console.WriteLine($"{pep.Name} - {pep.sportName}");
@@ -94,6 +97,15 @@ namespace LINQ
             {
                 Console.WriteLine($"{rep.StudentName} - {rep.Depar}");
             }
+            Console.WriteLine($"The average of Id in Student List is - {average}");
+            Console.WriteLine($"The sum of Id in StudentList id - {sum}");
+
+
+            IList<int> strList = new List<int>() {1,2,3,4,5,6};
+
+            var commaSeperatedString = strList.Aggregate((s1, s2) => s1 + s2);
+
+            Console.WriteLine(commaSeperatedString);
         }
     }
 
